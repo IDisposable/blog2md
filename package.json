@@ -1,17 +1,17 @@
 {
   "name": "blogger-to-md",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Blogger backup to markdown",
   "main": "index.js",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/palaniraja/blog2md.git"
+    "url": "git+https://github.com/IDisposable/blog2md.git"
   },
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
-  "author": "palaniraja",
-  "license": "ISC",
+  "author": "IDisposable",
+  "license": "MIT",
   "dependencies": {
     "moment": "^2.22.2",
     "sanitize-filename": "^1.6.3",

@@ -1,6 +1,6 @@
 # Blogger to Markdown
 
- Convert Blogger & WordPress backup blog posts to hugo compatible markdown documents 
+ Convert Blogger backup blog posts to hugo compatible markdown documents 
 
 
     Usage: node index.js b|w <BLOGGER BACKUP XML> <OUTPUT DIR>
@@ -8,25 +8,13 @@
 For Blogger imports, blog posts and comments (as seperate file `<postname>-comments.md`) will be created in "`out`" directory
 
 ```
-node index.js b your-blogger-backup-export.xml out
+node index.js your-blogger-backup-export.xml out
 ```
 
-For WordPress imports, blog posts and comments (as seperate file `<postname>-comments.md`) will be created in "`out`" directory
+If you want the comments to be merged in your post file itself. you can use flag `m` at the end. Defaults to `s` for seperate comments file. You can also drop the comments with flag 'd' at the end.
 
 ```
-node index.js w your-wordpress-backup-export.xml out
-```
-
-If you want the comments to be merged in your post file itself. you can use flag `m` at the end. Defaults to `s` for seperate comments file
-
-```
-node index.js w your-wordpress-backup-export.xml out m
-```
-
-If converting from WordPress, and you have posts that do not contain HTML, you can use a `paragraph-fix` flag at the end.
-
-```
-node index.js w your-wordpress-backup-export.xml out m paragraph-fix
+node index.js your-wordpress-backup-export.xml out m
 ```
 
 ## Installation (usual node project)
@@ -49,14 +37,7 @@ Script to convert posts from Blogger to Markdown.
 - [x] Create output dir
 - [ ] List items that are not downloaded( or can't) along with their .md file for user to proceed
 
+## Why
 
-## Reasons
-
-* Wrote this to consolidate and convert my blogs under one roof.
-* Plain simple workflow with `hugo` 
-* Ideas was to download associated assets (images/files) linked to post. Gave up, because it was time consuming and anyhow I need to validate the markdown with assets of converted. And I don't see benefit.
-* Initial assumption was to parse with `xpath` but I found `xml2json.js` was easier
-* Also thought `pandoc` is a overkill and `turndown.js` was successful, though I had to wrap empty `text` to `md` instead of `html`.
-* I want to retain comments. Believe it or not, There were some **good** comments.
-* Was sick and spent around ~12 hrs over 5 days in coding and testing with my blog contents over ~150 posts. And also, I find parsing _oddly satisfying_ when it result in success. `¯\_(ツ)_/¯`
-
+* Liked what the original version did, but needed a bunch of tweaks so worth forking. Also don't care about WordPress exports, so killed that off.
+* Needed to port my dead dead dead Blogger to Hugo.
